@@ -1,21 +1,23 @@
 import useForm from './useForm'
+import validate from './validateInfo'
 
 const FormSignup = ({ title }) => {
-    const { handleChange, values, handleSubmit } = useForm()
+    const { handleChange, values, handleSubmit, errors } = useForm(validate)
 
     return (
         <div>
             <form className='form' onSubmit={handleSubmit}>
                 <h3>{ title }</h3>
                 <div className='form-control'>
-                <label>Login</label>
+                <label>E-Mail</label>
                     <input 
                         type='text'
-                        placeholder='Enter your login'
-                        name='login'
-                        value={values.login}
+                        placeholder='Enter your E-mail'
+                        name='email'
+                        value={values.email}
                         onChange={handleChange}
                     />
+                    {errors.email && <p>{errors.email}</p>}
                 </div>
                 <div className='form-control'>
                 <label>Password</label>
@@ -26,6 +28,7 @@ const FormSignup = ({ title }) => {
                         value={values.password}
                         onChange={handleChange}
                     />
+                    {errors.password && <p>{errors.password}</p>}
                 </div>
                 <input type='submit' value='Save Tasks' className='btn' />
                 <span className="form-input ">

@@ -84,6 +84,10 @@ body {
   text-align: center;
 }
 
+p {
+  color: rgb(248, 14, 14);
+}
+
 .form-input-login a {
   text-decoration: none;
   color: #27cdff;
